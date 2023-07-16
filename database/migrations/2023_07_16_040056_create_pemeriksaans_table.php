@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('keluhan');
             $table->text('catatan')->nullable();
             $table->string('status')->nullable();
+            // hadir dan tidak hadir    
             $table->timestamps();
         });
     }

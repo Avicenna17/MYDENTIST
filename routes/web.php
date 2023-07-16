@@ -22,7 +22,9 @@ Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/home', [HomeController::class,'index'])->name('dashboard-dokter');
+Route::get('/terbayar-bulanan', [HomeController::class,'getPaidMonthly'])->name('paid-monthly');
 Route::get('/rekam-medis', [RekamMedisController::class,'index'])->name('rekam-medis');
 Route::get('/rekam-medis/create/{id}', [RekamMedisController::class,'create'])->name('tambah-rekam-medis');
 Route::post('/rekam-medis/create/{id}', [RekamMedisController::class,'store'])->name('simpan-rekam-medis');
+
 });
