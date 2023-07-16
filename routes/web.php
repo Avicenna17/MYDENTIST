@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\RekamMedisController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,9 @@ Route::get('/rekam-medis/create/{id}', [RekamMedisController::class,'create'])->
 Route::post('/rekam-medis/create/{id}', [RekamMedisController::class,'store'])->name('simpan-rekam-medis');
 // admin
 Route::resource('/jadwal', JadwalController::class);
+Route::get('/pembayaran',[PembayaranController::class,'index'])->name('bayar.index');
+Route::get('/pembayaran/{id}',[PembayaranController::class,'create'])->name('bayar.add');
+Route::post('/pembayaran/{id}',[PembayaranController::class,'store'])->name('bayar.add');
+Route::get('/pembayaran/{id}/show',[PembayaranController::class,'show'])->name('bayar.show');
 
 });

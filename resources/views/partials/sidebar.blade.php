@@ -31,6 +31,11 @@
                    <i class='bx bx-notepad'></i>
                    <span>Jadwal</span></a>
            </li>
+           <li class="nav-item {{ url()->current() == route('bayar.index') ? 'active' : '' }} ">
+               <a class="nav-link" href="{{ route('bayar.index') }}">
+                   <i class='fas fa-money-bill-wave'></i>
+                   <span>Pembayaran</span></a>
+           </li>
        @endif
 
 

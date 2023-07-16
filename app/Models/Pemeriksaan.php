@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\Obat;
 use App\Models\User;
+use App\Models\Jadwal;
+use App\Models\Pembayaran;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -23,5 +25,8 @@ class Pemeriksaan extends Model
     {
         return $this->belongsTo(Jadwal::class);
     }
-
+    public function pembayaran()
+    {
+        return $this->hasOne(Pembayaran::class);
+    }
 }

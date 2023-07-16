@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('status');
             // terbayar dan belum terbayar
             $table->string('metode');
-            $table->string('bukti_bayar');
+            $table->string('bukti_bayar')->nullable();
             $table->timestamps();
         });
     }
