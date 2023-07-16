@@ -33,6 +33,14 @@ class DatabaseSeeder extends Seeder
             'no_telepon' => '081234567',
             'role' => 'dokter',
         ]);
+        User::create([
+            'name' => 'cavel',
+            'email' => 'cavel@gmail.com',
+            'password' => bcrypt('1234'),
+            'alamat' => "gunungsari",
+            'no_telepon' => '081234567',
+            'role' => 'admin',
+        ]);
         for ($i = 0; $i < 10; $i++) {
             # code...
             User::create([

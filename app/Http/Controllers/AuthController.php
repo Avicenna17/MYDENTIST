@@ -19,11 +19,11 @@ class AuthController extends Controller
             // Authentication successful
             if (Auth::user()->role=='dokter') {
                 # code...
-                return redirect()->route('dashboard-dokter'); // Replace 'dashboard' with your desired authenticated route
+                return redirect()->route('dashboard'); // Replace 'dashboard' with your desired authenticated route
             }
             if (Auth::user()->role=='admin') {
                 # code...
-                return redirect()->route('dashboard-admin'); // Replace 'dashboard' with your desired authenticated route
+                return redirect()->route('dashboard'); // Replace 'dashboard' with your desired authenticated route
             }
         } else {
             // Authentication failed

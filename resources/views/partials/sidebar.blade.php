@@ -12,17 +12,24 @@
        <!-- Divider -->
        <hr class="sidebar-divider my-0">
 
+       <li class="nav-item {{ url()->current() == route('dashboard') ? 'active' : '' }} ">
+           <a class="nav-link" href="{{ route('dashboard') }}">
+               <i class="fas fa-fw fa-tachometer-alt"></i>
+               <span>Dashboard</span></a>
+       </li>
        @if (Auth::user()->role == 'dokter')
            <!-- Nav Item - Dashboard -->
-           <li class="nav-item {{ url()->current() == route('dashboard-dokter') ? 'active' : '' }} ">
-               <a class="nav-link" href="{{ route('dashboard-dokter') }}">
-                   <i class="fas fa-fw fa-tachometer-alt"></i>
-                   <span>Dashboard</span></a>
-           </li>
            <li class="nav-item {{ url()->current() == route('rekam-medis') ? 'active' : '' }} ">
                <a class="nav-link" href="{{ route('rekam-medis') }}">
                    <i class='bx bx-notepad'></i>
                    <span>Rekam Medis</span></a>
+           </li>
+       @endif
+       @if (Auth::user()->role == 'admin')
+           <li class="nav-item {{ url()->current() == route('jadwal.index') ? 'active' : '' }} ">
+               <a class="nav-link" href="{{ route('jadwal.index') }}">
+                   <i class='bx bx-notepad'></i>
+                   <span>Jadwal</span></a>
            </li>
        @endif
 
