@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+       $user =  $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|string',
@@ -39,7 +39,9 @@ class UserController extends Controller
             'no_telepon' => 'required|string|max:15',
             'role' => 'required|string|max:255',
         ]);
-        User::create($request->all());
+
+        $user['password'] =bcrypt($user['password']);
+        User::create($user);
 
 
 
@@ -47,7 +49,7 @@ class UserController extends Controller
     }
     public function show($id)
     {
-        
+
     }
 
     public function edit($id)
@@ -70,7 +72,7 @@ class UserController extends Controller
         // Jika ada password baru yang diberikan, validasi dan update password
         if ($request->filled('password')) {
             $request->validate([
-                'password' => 'required|string|min:6', // Sesuaikan dengan kebutuhan Anda
+                'password' => 'required|string', // Sesuaikan dengan kebutuhan Anda
             ]);
 
             $user->update([
