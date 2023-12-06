@@ -54,25 +54,7 @@ class DatabaseSeeder extends Seeder
         // }
 
 
-        // for ($i = 1; $i <= 1; $i++) {
-        //     Pemeriksaan::create([
-        //         'user_id' => 1,
-        //         'jadwal_id' => $i,
-        //         "keluhan" => 'Patah Hati',
-        //         'status'=>'hadir'
-        //         // 'catatan'=>'Move On Dek',
-        //     ]);
-        // }
-        // for ($i = 1; $i <= 1; $i++) {
-        //     Pembayaran::create([
-        //         'pemeriksaan_id' =>$i,
-        //         'total_bayar' => $i.'000000',
-        //         'status' => 'terbayar',
-        //         'metode' => 'cash',
-        //         'bukti_bayar' => 'photo.jpg',
-        //         'created_at'=>"2023-0$i-06",
-        //     ]);
-        // }
+      
         // foreach($obats as $index =>$item) {
         //     DB::table('obat_pemeriksaan')->insert([
         //         'obat_id' => $index,
