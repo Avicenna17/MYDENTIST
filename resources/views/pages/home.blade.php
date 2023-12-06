@@ -91,9 +91,9 @@
                             <i class="fas fa-circle text-success"></i> Hadir
                         </span>
 
-                        <span class="mr-2">
+                        {{-- <span class="mr-2">
                             <i class="fas fa-circle text-danger"></i> Tidak Hadir
-                        </span>
+                        </span> --}}
                     </div>
                 </div>
             </div>
@@ -106,9 +106,9 @@
             var myPieChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ["Hadir", "Tidak Hadir"],
+                    labels: ["Hadir",],
                     datasets: [{
-                        data: ['{{ $pasienHBulanIni }}', '{{ $pasienThBulanIni }}'],
+                        data: ['{{ $pasienHBulanIni }}'],
                         backgroundColor: ['#1cc88a', '#e74a3b'],
                         hoverBackgroundColor: ['#1cc88a', '#e74a3b'],
                         hoverBorderColor: "rgba(234, 236, 244, 1)",

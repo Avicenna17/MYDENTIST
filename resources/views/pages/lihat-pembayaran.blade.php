@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <label for="" class="form-label">Nama </label>
-                    <input required type="text" disabled class="form-control" value="{{ $pemeriksaan->user->name }}">
+                    <input required type="text" disabled class="form-control" value="{{ $pemeriksaan->name }}">
                 </div>
                 <div class="row mb-3">
                     <label for="" class="form-label">Jadwal </label>

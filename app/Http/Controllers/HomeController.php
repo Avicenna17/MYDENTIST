@@ -7,14 +7,32 @@ use App\Models\Pembayaran;
 use App\Models\Pemeriksaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Carbon;
+
 
 class HomeController extends Controller
 {
-    //
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-        $pendapatanHariIni = Pembayaran::where('created_at', date('Y-m-d'))->sum('total_bayar');
+        $today = Carbon::now()->startOfDay();
+
+        $pendapatanHariIni = Pembayaran::whereDate('created_at', $today)->sum('total_bayar');
         $dateNow = date('Y-m-d');
         $pasienHariIni = Pemeriksaan::where('status', 'hadir')->whereHas('jadwal', function ($query) use ($dateNow) {
             $query->whereDate('tanggal', $dateNow);
@@ -30,7 +48,13 @@ class HomeController extends Controller
                 ->whereYear('tanggal', $currentYear);
         })->count();
 
-        $jumlahDaftarPasien = User::where('role', 'pasien')->count();
+
+        $jumlahDaftarPasien =  Pemeriksaan::where('status', 'hadir')
+        ->whereHas('jadwal', function ($query) use ($today) {
+            $query->whereDate('tanggal', $today);
+        })
+        ->distinct('name')
+        ->count('name');
         return view('pages.home', compact('pendapatanHariIni', 'pasienHariIni', 'jumlahDaftarPasien','pasienThBulanIni','pasienHBulanIni'));
     }
     public function getPaidMonthly()

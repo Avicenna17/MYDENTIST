@@ -41,41 +41,28 @@ class DatabaseSeeder extends Seeder
             'no_telepon' => '081234567',
             'role' => 'admin',
         ]);
-        for ($i = 0; $i < 10; $i++) {
-            # code...
-            User::create([
-                'name' => 'avi' . $i,
-                'email' => "avi$i@gmail.com",
-                'password' => bcrypt('1234'),
-                'alamat' => "Sepanjang",
-                'no_telepon' => '081234567',
-                'role' => 'pasien',
-            ]);
-        }
-        $obats = ['paracetamol', 'ibuprofen', 'paramex', 'ganja', 'sabu', 'heroine'];
-        foreach ($obats as $item) {
-            Obat::create([
-                'nama_obat' => $item,
-            ]);
-        }
+        // for ($i = 0; $i < 10; $i++) {
+        //     # code...
+        //     User::create([
+        //         'name' => 'avi' . $i,
+        //         'email' => "avi$i@gmail.com",
+        //         'password' => bcrypt('1234'),
+        //         'alamat' => "Sepanjang",
+        //         'no_telepon' => '081234567',
+        //         'role' => 'pasien',
+        //     ]);
+        // }
 
-        for ($i = 1; $i < 10; $i++) {
-            Jadwal::create([
-                'tanggal' => "2023-0$i-06",
-                'sesi_awal' => '07:00',
-                'sesi_akhir' => '10:00',
-                'max_pasien' => 5
-            ]);
-        }
-        for ($i = 1; $i <= 1; $i++) {
-            Pemeriksaan::create([
-                'user_id' => 1,
-                'jadwal_id' => $i,
-                "keluhan" => 'Patah Hati',
-                'status'=>'hadir'
-                // 'catatan'=>'Move On Dek',
-            ]);
-        }
+
+        // for ($i = 1; $i <= 1; $i++) {
+        //     Pemeriksaan::create([
+        //         'user_id' => 1,
+        //         'jadwal_id' => $i,
+        //         "keluhan" => 'Patah Hati',
+        //         'status'=>'hadir'
+        //         // 'catatan'=>'Move On Dek',
+        //     ]);
+        // }
         // for ($i = 1; $i <= 1; $i++) {
         //     Pembayaran::create([
         //         'pemeriksaan_id' =>$i,

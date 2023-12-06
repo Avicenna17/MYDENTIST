@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Medilab Bootstrap Template - Index</title>
+    <title>My Dentist</title>
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="" name="keywords">
     <!-- Custom fonts for this template-->
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -37,18 +38,18 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Yakin mau keluar?</h5>
                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                            <div class="modal-body">Klik tombol "Iya" di bawah ini, kalo kangen jangan lupa masuk lagi yaa.
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
                                 <form method="post" action="{{ route('logout') }}">
                                     @csrf
-                                    <button type="submit" class="btn btn-primary" href="">Logout</button>
+                                    <button type="submit" class="btn btn-primary" href="">Iya</button>
                                 </form>
                             </div>
                         </div>

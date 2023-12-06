@@ -4,6 +4,7 @@
         <div class="card-header">
             <div class="row d-flex justify-content-between">
                 <h5>Pemeriksaan</h5>
+
             </div>
         </div>
         <div class="card-body">
@@ -24,7 +25,7 @@
                         @foreach ($pemeriksaan as $item)
                             <tr>
                                 <td class="p-2">{{ $i++ }}</td>
-                                <td>{{ $item->user->name }}</td>
+                                <td>{{ $item->name }}</td>
                                 <td>{{ date('d/m/Y',strtotime($item->jadwal->tanggal)).' '.date('H:i',strtotime($item->jadwal->sesi_awal)).' - ' .date('H:i',strtotime($item->jadwal->sesi_akhir))  }}</td>
 
 

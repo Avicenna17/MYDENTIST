@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('pemeriksaans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
             $table->foreignId('jadwal_id');
+            $table->string('name');
             $table->text('keluhan');
             $table->text('catatan')->nullable();
             $table->string('status')->nullable();
-            // hadir dan tidak hadir    
+            // hadir dan tidak hadir
             $table->timestamps();
         });
     }

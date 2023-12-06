@@ -1,6 +1,6 @@
 @extends('main')
 @section('isi')
-<form action="{{ route('tambah-rekam-medis',['id'=>$rekamMedis->id]) }}" method="POST">
+<form action="{{ route('tambah-rekam-medis') }}" method="POST">
     @csrf
     <div class="card">
         <div class="card-header">
@@ -9,11 +9,11 @@
         <div class="card-body">
             <div class="row mb-3">
                 <label for="" class="form-label">Nama </label>
-               <input required type="text" disabled class="form-control" name="user_id" value="{{ $rekamMedis->user->name  }}" >
+               <input required type="text"  class="form-control" name="name"  >
             </div>
             <div class="row mb-3">
                 <label for="" class="form-label">Keluhan</label>
-                <textarea disabled name="keluhan"  value="{{ $rekamMedis->keluhan }}" class="form-control">{{ $rekamMedis->keluhan }}</textarea>
+                <textarea  name="keluhan"  value="" class="form-control"></textarea>
             </div>
             <div class="row mb-3">
                 <label for="" class="form-label">Catatan</label>
@@ -28,15 +28,23 @@
                 </select>
             </div>
             <div class="row mb-3">
+                <label for="" class="form-label">Jadwal</label>
+                <select class="select2 form-control" name="jadwal_id">
+                  @foreach ($jadwal as $item)
+                    <option value="{{ $item->id }}">{{ $item->tanggal }}</option>
+                  @endforeach
+                </select>
+            </div>
+            <div class="row mb-3">
                 <label for="" class="form-label">Status</label>
                 <select class="select2 form-control" name="status">
-                    <option value="Hadir">Hadir</option>
-                    <option value="Tidak Hadir">Tidak Hadir</option>
+                    <option value="hadir">Hadir</option>
+                    {{-- <option value="Tidak Hadir">Tidak Hadir</option> --}}
                 </select>
             </div>
         </div>
         <div class="card-footer">
-            <a href="{{ route('rekam-medis') }}" class="btn btn-primary">Kembali</a>
+            <a href="{{ route('rekam-medis') }} " class="btn btn-primary">Kembali</a>
             <button class="btn btn-primary" >Submit</button>
         </div>
     </div>

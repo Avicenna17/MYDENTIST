@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Jadwal;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class JadwalSeeder extends Seeder
 {
@@ -12,6 +13,14 @@ class JadwalSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+
+        for ($i = 1; $i < 10; $i++) {
+            Jadwal::create([
+                'tanggal' => "2023-0$i-06",
+                'sesi_awal' => '07:00',
+                'sesi_akhir' => '10:00',
+                'max_pasien' => 5
+            ]);
+        }
     }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -14,6 +16,7 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+
 
         if (Auth::attempt($credentials)) {
             // Authentication successful
@@ -27,7 +30,8 @@ class AuthController extends Controller
             }
         } else {
             // Authentication failed
-            return redirect()->back()->withInput()->withErrors(['Invalid credentials. Please try again.']);
+            // custom kata kata hari ini
+            return back()->withErrors(['Invalid credentials. Please try again.']);
         }
     }
     public function index()

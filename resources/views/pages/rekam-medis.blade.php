@@ -4,6 +4,9 @@
         <div class="card-header">
             <div class="row d-flex justify-content-between">
                 <h5>Rekam Medis</h5>
+                <a href="{{ route('tambah-rekam-medis') }}" class="btn btn-primary">
+                    Tambah Rekam medis
+                </a>
             </div>
 
         </div>
@@ -20,7 +23,7 @@
                             <th class="text-center">Catatan </th>
                             <th class="text-center">Obat</th>
                             <th class="text-center">Status</th>
-                            <th class="text-center">Aksi</th>
+                            {{-- <th class="text-center">Aksi</th> --}}
                         </tr>
                     <tbody>
                         @php
@@ -29,7 +32,7 @@
                         @foreach ($pemeriksaan as $item)
                             <tr>
                                 <td class="p-2">{{ $i++ }}</td>
-                                <td>{{ $item->user->name }}</td>
+                                <td>{{ $item->name }}</td>
                                 <td>{{ date('d/m/Y',strtotime($item->jadwal->tanggal)).' '.date('H:i',strtotime($item->jadwal->sesi_awal)).' - ' .date('H:i',strtotime($item->jadwal->sesi_akhir))  }}</td>
                                 <td>{{ $item->keluhan }}</td>
                                 <td>{{ $item->catatan }}</td>
@@ -41,12 +44,12 @@
                                 <td>
                                     {{ $item->status==''?'Belum Hadir':$item->status }}
                                 </td>
-                                <td>
+                                {{-- <td>
                                     @if ($item->catatan==null)
 
                                     <a href="{{ route('tambah-rekam-medis',['id'=>$item->id]) }}" class="btn btn-primary"><i class='bx bxs-edit'></i></a>
                                     @endif
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>

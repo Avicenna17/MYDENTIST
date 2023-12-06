@@ -36,6 +36,11 @@
                    <i class='fas fa-money-bill-wave'></i>
                    <span>Pembayaran</span></a>
            </li>
+           <li class="nav-item {{ url()->current() == route('user.index') ? 'active' : '' }} ">
+               <a class="nav-link" href="{{ route('user.index') }}">
+                   <i class='fas fa-users'></i>
+                   <span>Akun</span></a>
+           </li>
        @endif
 
 

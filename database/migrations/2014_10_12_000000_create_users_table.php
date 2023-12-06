@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('no_telepon');
             $table->string('role');
-            // pasien , admin, dokter
+            //  admin, dokter
             $table->date('tgl_lahir')->nullable();
             $table->timestamps();
         });
