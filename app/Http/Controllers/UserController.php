@@ -34,7 +34,32 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users|max:255',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string',
+            'alamat' => 'required|string|max:255',
+            'no_telepon' => 'required|string|max:15',
+            'role' => 'required|string|max:255',
+        ]);
+        User::create($request->all());
+
+
+
+        return redirect()->route('user.index')->with('success', 'User created successfully');
+    }
+    public function show($id)
+    {
+        
+    }
+
+    public function edit($id)
+    {
+
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id,
             'alamat' => 'required|string|max:255',
             'no_telepon' => 'required|string|max:15',
             'role' => 'required|string|max:255',
@@ -61,33 +86,6 @@ class UserController extends Controller
             'no_telepon' => $request->no_telepon,
             'role' => $request->role,
         ]);
-
-        return redirect()->route('users.index')->with('success', 'User created successfully');
-    }
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-        return view('users.show', compact('user'));
-    }
-
-    public function edit($id)
-    {
-
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'alamat' => 'required|string|max:255',
-            'no_telepon' => 'required|string|max:15',
-            'role' => 'required|string|max:255',
-        ]);
-
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-
         return redirect()->route('user.index')->with('success', 'User updated successfully');
     }
 
