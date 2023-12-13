@@ -19,6 +19,8 @@
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="/css/datatables.css" rel="stylesheet" />
     <link href="/css/select2.css" rel="stylesheet" />
+    {{--ganti logo disini --}}
+    <link rel="shortcut icon" href="/logo.mydentist.png" type="image/x-icon">
 </head>
 
 <body>
